@@ -90,7 +90,56 @@ window.NJ = {
     },
 
     {
-      id: "mid", code: "CASE-02", seller: "navya", cats: ["payments", "process", "build"],
+      id: "perfora", code: "CASE-02", seller: "mu", cats: ["seller", "gtm", "payments"],
+      name: "Perfora — doubling website revenue from ₹3 Cr to ₹6 Cr a month",
+      short: "Perfora growth plan", kind: "Growth strategy · pitched to the CEO", badge: "Pitched to CEO", date: "2026", sort: 202611,
+      price: { v: "₹6 Cr", u: "monthly website revenue target", strike: "₹3 Cr", off: "70% from fixing leaks", prov: "target" },
+      hook: "More ad spend won't break the ₹3 Cr ceiling: the brand was losing customers at checkout, at the doorstep and after the first order.",
+      poster: { bg: "#E9F7FF", fg: "#0B3B5C", accent: "#1BA1E2", big: "₹3 → ₹6 Cr", small: "monthly revenue plan · RTO, checkout, repeat" },
+      media: [
+        { type: "img", src: "assets/work/perfora-slide-1.jpg", alt: "Slide 1: diagnosis — funnel leaks, ad payback and four root causes" },
+        { type: "img", src: "assets/work/perfora-slide-2.jpg", alt: "Slide 2: growth bridge from ₹3 Cr to ₹6 Cr, lever by lever" },
+        { type: "img", src: "assets/work/perfora-slide-3.jpg", alt: "Slide 3: six-month roadmap, KPI scorecard and two beta tests" }
+      ],
+      links: [],
+      meesho: "COD-heavy Tier 2/3 orders, RTO climbing from ~10% to ~20%, mobile checkout drop-off and weak repeat buying — this is the Meesho problem set, solved for one brand. The fixes (WhatsApp COD confirmation, ₹49 partial COD, pincode gating, UPI-first checkout, refill nudges) are the levers a Meesho PM pulls.",
+      summary: {
+        problem: "Perfora nearly doubled performance-marketing spend, yet website revenue stayed stuck at ~₹3 Cr a month, conversion sat at 1.9–2.4% and RTO rose from ~10% to 18%. The brief: a single data-backed plan to reach ₹6 Cr in six months while improving profitability.",
+        did: "Diagnosed the full funnel from the case workbook, built a driver tree (sessions × CVR × AOV × repeat × delivery) to bridge ₹3 Cr to ₹6 Cr lever by lever, designed two randomised beta tests, and laid out a gated six-month roadmap with a KPI scorecard. Pitched it to Perfora's CEO.",
+        landed: "A plan where ₹2.1 Cr of the extra ₹3 Cr comes from fixing delivery, checkout, basket size and repeat buying, and only ₹0.9 Cr from new customers — with ad spend up just 15%, and every ₹1 of ads earning ₹1.11 of contribution instead of ₹0.67."
+      },
+      details: [
+        ["My role", "Built and pitched the growth plan — diagnosis, driver-tree model, beta-test design, roadmap"],
+        ["Pitched to", "Perfora's CEO · Masters' Union × Perfora challenge"],
+        ["Data", "MU × Perfora case workbook, case brief and founder inputs"],
+        ["Output", "3-slide plan: diagnosis → growth bridge → 6-month roadmap"]
+      ],
+      metrics: [
+        { v: "60%", l: "of checkouts abandoned — 98% of sessions are mobile", p: "sourced" },
+        { v: "1 in 4", l: "orders never delivered (RTO + cancellations)", p: "sourced" },
+        { v: "₹0.67", l: "of contribution per ₹1 of ads today; breakeven needs ₹1", p: "modelled" },
+        { v: "₹2.1 Cr", l: "of the extra ₹3 Cr from fixing leaks, not new traffic", p: "modelled" },
+        { v: "+15%", l: "ad spend needed (₹2.0 → ₹2.3 Cr), vs the ~+100% that bought no growth", p: "target" },
+        { v: "₹4.3 Cr", l: "still reached if every lever delivers only half its assumed uplift", p: "modelled" }
+      ],
+      sections: [
+        { h: "Diagnosis: the leaks, not the traffic",
+          p: "15 L monthly sessions → 1.5 L add-to-carts → 75 K checkouts → 30 K orders (₹2.7 Cr booked) → 23 K delivered (₹2.07 Cr realised). Spend roughly doubled while revenue stayed flat, so the marginal return on the last ~₹1 Cr of ads was close to zero. Once returns are counted, ₹1 of ads brought back ₹0.67 of contribution.",
+          list: ["Extra budget pushed into colder audiences on one channel (Meta ≈ 90%)", "60% COD with no confirmation or pincode gating, skewed to Tier 2/3", "Mobile checkout leak: only 40% of checkouts complete; 15K reviews not doing trust work on product pages", "No replenishment engine: 4.5% one-month retention on a 45-day product cycle"] },
+        { h: "The bridge to ₹6 Cr, lever by lever",
+          steps: [["RTO & cancellations · +₹0.35 Cr", "RTO 20% → 12%, cancellations 3.5% → 2.5%, via COD confirmation, partial COD and pincode gating."], ["Checkout conversion · +₹0.67 Cr", "Checkout completion 40% → 48%, lifting CVR 2.0% → 2.4% — the top of Perfora's own range — with UPI one-tap checkout."], ["Basket size · +₹0.61 Cr", "AOV ₹900 → ₹1,035: routine kits and a ₹999 free-shipping bar."], ["Repeat buying · +₹0.46 Cr", "One-month retention 4.5% → 9% with day-35 refill nudges and subscribe-and-save."], ["Qualified acquisition · +₹0.91 Cr", "Sessions 15 L → 17.7 L, with new spend released in tranches only to channels that pay back."]] },
+        { h: "Two beta tests before spending more",
+          compare: [["Test 1 · COD confirmation → RTO", "Tier 2/3 shoppers randomised 50/50 at checkout; WhatsApp confirmation + ₹49 partial COD. Roll out if COD RTO ≤ 24% and checkout completion drops < 1 pt; kill if CVR falls > 5%."], ["Test 2 · Past-buyer Meta holdout", "Hold out 50% of past buyers from Meta for four weeks. Keep the ~₹0.3 Cr/month only if the extra repeat orders it causes beat its cost; otherwise move it to prospecting."]] },
+        { h: "Six-month roadmap",
+          tiers: [["Fix: RTO, checkout, beta tests", "₹3.5 Cr", "Months 1–2"], ["Prove: kits, refill CRM, channel mix", "₹4.8 Cr", "Months 3–4"], ["Grow: gated new spend", "₹6.0 Cr", "Months 5–6"]],
+          p: "Each phase has an owner, leading KPIs and a gate. New ad money is released only to channels whose incremental ROAS clears breakeven (≈1.6x at a 62% contribution margin)." },
+        { h: "What if we're wrong?",
+          p: "At 75% of every assumed uplift, revenue still reaches ~₹5.1 Cr; at 50%, ~₹4.3 Cr. Profit beats today in both cases. Facts come from the case workbook (Sourced); the size of each uplift is our judgement (Modelled), which is exactly why the two beta tests come first." }
+      ]
+    },
+
+    {
+      id: "mid", code: "CASE-03", seller: "navya", cats: ["payments", "process", "build"],
       name: "MID Procurement Automation — event-sourced ops system",
       short: "MID Procurement", kind: "System design & live build", badge: "Live build", date: "Sep 2026 – present", sort: 202609,
       price: { v: "99.0%", u: "bank replies auto-applied", strike: "", off: "283 tests", prov: "modelled" },
@@ -137,7 +186,7 @@ window.NJ = {
     },
 
     {
-      id: "foundit", code: "CASE-03", seller: "mu", cats: ["seller", "gtm"],
+      id: "foundit", code: "CASE-04", seller: "mu", cats: ["seller", "gtm"],
       name: "Found It — Jaipur-sourced D2C brand, run on a weekly P&L",
       short: "Found It", kind: "Venture building · team venture", badge: "Real revenue", date: "Jul – Sep 2026", sort: 202607,
       price: { v: "₹6.94 L", u: "revenue in 3 months", strike: "", off: "10.1% EBT", prov: "result" },
@@ -176,7 +225,60 @@ window.NJ = {
     },
 
     {
-      id: "routeiq", code: "CASE-04", seller: "navya", cats: ["payments"],
+      id: "wowworld", code: "CASE-05", seller: "mu", cats: ["gtm", "seller"],
+      name: "WOW! World — WOW! Momo's next FMCG category, priced and sized",
+      short: "WOW! World", kind: "Category strategy · team pitch", badge: "Placed 3rd", date: "2026", sort: 202610,
+      price: { v: "₹5.2 Cr", u: "SOM a year in 3 pilot cities", strike: "", off: "6 SKUs · ₹10–₹99", prov: "modelled" },
+      hook: "Global-inspired masalas from ₹10: a cheap way to try, a better deal to keep cooking.",
+      cardImg: "assets/work/wow-packshot.jpg",
+      poster: { bg: "#1E1E1E", fg: "#FFD43B", accent: "#E31B23", big: "₹5.2 Cr", small: "SOM · 3 cities · 6 SKUs from ₹10" },
+      media: [
+        { type: "img", src: "assets/work/wow-pricing.jpg", alt: "Pricing slide: a cheap way to try, a better deal to keep cooking" },
+        { type: "img", src: "assets/work/wow-unit-economics.jpg", alt: "Unit economics slide: contribution per pack and margin by SKU" },
+        { type: "img", src: "assets/work/wow-market.jpg", alt: "Market size slide: TAM to SAM to SOM" },
+        { type: "img", src: "assets/work/wow-pilot.jpg", alt: "Pilot plan slide: ₹31 L in 6 months, ₹5.2 Cr a year at scale" },
+        { type: "img", src: "assets/work/wow-shelf.jpg", alt: "Shelf gap slide: the shelf barely goes past Schezwan" },
+        { type: "img", src: "assets/work/wow-range.jpg", alt: "Launch range slide: three flavours, six SKUs" }
+      ],
+      links: [],
+      meesho: "A ₹10 trial sachet to a ₹89 carton is a price ladder built for a value-conscious buyer, and the shaker earning 42% funds the lower-margin packs. Sizing SOM bottom-up — doors × packs a day × days × price — instead of as a share of India is how I'd size any new Meesho category.",
+      summary: {
+        problem: "WOW! Momo's packaged-foods business already sells frozen momos, cup and pouch noodles, ready-to-eat biryani and sauces. The brief: find the next category, and prove market gap, brand fit, size, SKUs, pricing and commercial viability.",
+        did: "With a five-person Masters' Union team, we found the gap through customer interviews and a Reddit test: the shelf barely goes past Schezwan. I owned pricing, unit economics and SOM — the price ladder against the shelf, contribution for every SKU, and a pilot-first market size.",
+        landed: "WOW! World: three global-inspired masalas across six SKUs from ₹10 to ₹99, a ₹54 L gated pilot in nine quick-commerce clusters, and money back by 2028. Placed 3rd, pitching to WOW! Momo's CEO."
+      },
+      details: [
+        ["My role", "Pricing, unit economics and SOM"],
+        ["Team", "Saanvi Jindal, Yash Dhariwal, Tarushi Tyagi, Anjali Lodha & Navya Juneja"],
+        ["Pitched to", "WOW! Momo's CEO · placed 3rd"],
+        ["Research", "On-camera customer interviews in Delhi, an r/delhi thread, shelf and competitor pricing"],
+        ["Note", "Pack designs are concept mock-ups made by the team"]
+      ],
+      metrics: [
+        { v: "₹1,273 Cr", l: "category today, ₹2,639 Cr by 2030 (15.7% CAGR)", p: "modelled" },
+        { v: "₹31 L", l: "pilot sales in 6 months across 9 clusters", p: "modelled" },
+        { v: "42%", l: "contribution on the ₹99 shaker — the margin engine of the range", p: "modelled" },
+        { v: "₹17.8–20", l: "a meal: between Ching's ₹10 sachet and Knorr's ₹27.5", p: "target" },
+        { v: "₹54 L", l: "pilot budget; at worst WOW! is ₹51 L out of pocket, back above zero in 2028", p: "modelled" },
+        { v: "5 gates", l: "velocity, taste, trial, repeat and viability decide the ₹29 L scale-up", p: "target" }
+      ],
+      sections: [
+        { h: "The gap: the shelf barely goes past Schezwan",
+          p: "Young Indians try Korean, Thai and Himalayan street food when they eat out, but the pantry offers Indo-Chinese mixes or costly imports. Indo-Chinese recipe sachets cost about ₹10 a meal; imported Asian seasonings ₹3.75/g, with few brands in between. And there's no new habit to teach: Indians already cook with pav bhaji and biryani masalas." },
+        { h: "Pricing: a cheap way to try, a better deal to keep cooking",
+          tiers: [["Cooking masala sachet, 20 g", "₹20", "To try"], ["Carton, 5 × 20 g", "₹89", "To keep cooking"], ["Spring Onion shaker, 60 g", "₹99", "Finishing crunch"]],
+          p: "₹17.8–20 a meal sits a step above Ching's ₹10 and below Knorr's ₹27.5. The carton is 11% cheaper per meal, so the sachet never undercuts it. ₹10 is the counter price for impulse adds; the shaker sits 32% below Orika's per gram while earning 42% of net revenue." },
+        { h: "Unit economics: every SKU from MRP to contribution",
+          p: "₹89 Korean Street Style carton: −₹4.2 GST, −₹22.9 channel margin = ₹61.9 net revenue; −₹35.5 COGS, −₹8 marketing, −₹3 logistics = ₹15.3 contribution (24.8%). Blended contribution is 28% on the 2028 mix. The Himalayan Jhol carton earns only 13.5% today — getting its ingredient cost down is job one for recipe work." },
+        { h: "SOM built from the pilot, not as a share of India",
+          steps: [["Pilot · ₹31 L in 6 months", "300 dark stores × 0.8 packs a day × 182 days × ₹66, plus 40 WOW! outlets × 1 pack a day."], ["Year 1 · ₹1.59 Cr", "Pilot plus scale-up in Delhi NCR, Bengaluru and Mumbai."], ["SOM · ₹5.2 Cr a year", "1,500 dark stores × 1.2 a day + 115 outlets × 1.5 + 500 modern-trade stores × 0.4 — 4.2% of the ₹124 Cr pilot-city SAM."]] },
+        { h: "Gated pilot",
+          list: ["Velocity: 0.8 packs per dark store a day", "Taste: 4/5 or better", "Trial: 8% of tasters buy within 7 days", "Repeat: 25% buy again within 60 days", "Viability: 20%+ contribution"] }
+      ]
+    },
+
+    {
+      id: "routeiq", code: "CASE-06", seller: "navya", cats: ["payments"],
       name: "RouteIQ — dynamic payment routing, written as a PRD",
       short: "RouteIQ", kind: "PRD & trade-off design", badge: "Prototype", date: "", sort: 202606,
       price: { v: "6", u: "deliberate non-goals", strike: "", off: "4 guardrails", prov: "target" },
@@ -214,7 +316,7 @@ window.NJ = {
     },
 
     {
-      id: "h2h", code: "CASE-05", seller: "cogent", cats: ["gtm", "build"],
+      id: "h2h", code: "CASE-07", seller: "cogent", cats: ["gtm", "build"],
       name: "H2H — 0→1 career-prep product: pricing, funnel & launch",
       short: "H2H at Cogent", kind: "Professional · 0→1 product", badge: "Launched", date: "Aug 2025 – Jun 2026", sort: 202508,
       price: { v: "~300", u: "sign-ups in 2 months", strike: "~65", off: "4.6× growth", prov: "result" },
@@ -252,7 +354,7 @@ window.NJ = {
     },
 
     {
-      id: "prolectro", code: "CASE-06", seller: "mu", cats: ["gtm"],
+      id: "prolectro", code: "CASE-08", seller: "mu", cats: ["gtm"],
       name: "Prolectro — clear protein sachet, consumer research to GTM",
       short: "Prolectro", kind: "GTM strategy · proposed, not launched", badge: "Proposed", date: "Sep 2026", sort: 202609,
       price: { v: "₹129", u: "per sachet", strike: "₹166", off: "vs nearest rival", prov: "target" },
@@ -403,7 +505,7 @@ window.NJ = {
       title: "PGP in Technology & Business Management (PGP-TBM)", when: "2026 – Present", where: "Gurgaon",
       status: "ongoing", statusText: "In progress",
       body: "Technology, strategy and business transformation. Co-launched 2 revenue-generating ventures (₹7.3 L combined) and a live AI product.",
-      related: ["foundit", "prolectro"]
+      related: ["perfora", "wowworld", "foundit", "prolectro"]
     },
     {
       id: "cogent", type: "work", org: "Cogent Infotech", logo: "assets/logos/cogent.svg",
@@ -475,8 +577,6 @@ window.NJ = {
     ["6", "first and second-place awards across national theatre competitions spanning 10+ colleges"],
     ["Top 15", "nationally at Mood Indigo, IIT Bombay, across 2,000+ entrants"],
     ["1st", "at the Masters' Union Startup Weekend, pitching a D2C pet-care venture against 20+ teams"],
-    ["3rd", "pitching WOW! Momo's next FMCG category to its CEO — pricing, unit economics, SOM"],
-    ["₹6 Cr", "a month: the plan pitched to Perfora's CEO to double revenue, 70% of it from fixing RTO, checkout and repeat purchase"],
     ["3", "inter-school Parliamentary Debate finals reached as semi-finalist or first runner-up"]
   ],
 

@@ -778,3 +778,13 @@ body:not(.r-home):not(.r-shop) .mic-fab{display:none}
 .hdr{display:flex;flex-direction:column}
 .hdr-sub{order:-1}
 @media (min-width:1024px){.hdr{display:block}}
+.poster.photo{background:#141414}
+.poster.photo img{width:100%;height:100%;object-fit:cover}
+.poster.photo .po-code{position:absolute;left:7cqw;top:7cqw;color:#fff;background:rgba(0,0,0,.45)}
+.slide .poster.photo img{object-fit:contain}
+.cgrid .cg-img .poster.photo .po-code{display:none}
+@media (min-width:1024px){
+  .gal{align-items:start}
+  .thumbs-v{max-height:min(520px,calc(100vh - 200px));overflow-y:auto;scrollbar-width:thin;padding-right:2px}
+  .thumbs-v button{flex:none}
+}

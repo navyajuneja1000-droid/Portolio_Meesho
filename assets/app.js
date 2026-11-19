@@ -90,6 +90,7 @@
   }
   function poster(p) {
     var o = p.poster, s = D.sellers[p.seller];
+    if (p.cardImg) return '<div class="poster photo" aria-hidden="true"><img src="' + p.cardImg + '" alt="" loading="lazy"><span class="po-code">' + esc(p.code) + "</span></div>";
     return '<div class="poster" style="background:' + o.bg + ";color:" + o.fg + '" aria-hidden="true">' +
       '<i class="po-c a" style="background:' + o.accent + '"></i><i class="po-c b" style="background:' + o.accent + '"></i>' +
       '<div class="po-top"><span class="po-code">' + esc(p.code) + '</span><span class="po-logo"><img src="' + s.logo + '" alt=""></span></div>' +
@@ -257,7 +258,7 @@
       '<span class="cal"><i>' + d[0] + "</i><b>" + d[1] + '</b></span><span class="go">' + I.arrow + '</span></div><span class="tc">*Every figure labelled by provenance</span></a>';
   }
   function bestPicks() {
-    var picks = ["reconos", "foundit", "pp-routing", "h2h"].map(function (id) { return byId[id]; });
+    var picks = ["reconos", "perfora", "wowworld", "pp-routing"].map(function (id) { return byId[id]; });
     return '<a class="best" href="#/shop/all" aria-label="Best picks: see all products"><div class="best-in"><h3><span>Best</span><span>Picks 👌</span></h3>' +
       '<div class="thumbs">' + picks.map(function (p) { return '<span class="mini" style="position:relative">' + poster(p) + "</span>"; }).join("") + '</div><span class="arr">' + I.arrow.replace("<svg", '<svg aria-hidden="true"') + "</span></div></a>";
   }
