@@ -5,7 +5,8 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var byId = {}; D.products.forEach(function (p) { byId[p.id] = p; });
+  var byId = {}; D.products.forEach(function (p) { byId[p.id] = p; if (p.links.length && p.cats.indexOf("live") < 0) p.cats.push("live"); });
+  function host(u) { return u.replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0]; }
 
   /* ---------------- storage (per-viewer convenience only) ---------------- */
   function load(k, d) { try { var v = localStorage.getItem("mxn_" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
@@ -77,9 +78,10 @@
     flow: '<svg viewBox="0 0 40 40"><rect x="4" y="6" width="12" height="9" rx="2.5" fill="#00A3A1"/><rect x="24" y="6" width="12" height="9" rx="2.5" fill="#00A3A1"/><rect x="14" y="26" width="12" height="9" rx="2.5" fill="#9F2089"/><path d="M10 15v5h20v-5M20 20v6" stroke="#2E2E3E" stroke-width="2" fill="none"/></svg>',
     mall: '<img src="assets/logos/phonepe.svg" alt="">',
     orders: '<svg viewBox="0 0 40 40"><path d="M20 5l13 6.5v16L20 34 7 27.5v-16z" fill="#C8A26B"/><path d="M7 11.5L20 18l13-6.5M20 18v16" stroke="#8A6A3C" stroke-width="1.8" fill="none"/><path d="M13.5 8.2l13 6.5" stroke="#F5E6C8" stroke-width="3"/></svg>',
+    live: '<svg viewBox="0 0 40 40"><rect x="4" y="7" width="32" height="22" rx="4" fill="#038D63"/><rect x="7" y="10" width="26" height="16" rx="2" fill="#E7F8EF"/><circle cx="12" cy="18" r="3" fill="#06A759"/><path d="M18 15h11M18 20h7" stroke="#038D63" stroke-width="2.2" stroke-linecap="round"/><path d="M14 33h12M20 29v4" stroke="#2E2E3E" stroke-width="2.2" stroke-linecap="round"/></svg>',
     help: '<svg viewBox="0 0 40 40"><path d="M6 9a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H17l-7 6v-6a4 4 0 0 1-4-4z" fill="#9F2089"/><path d="M16.5 13a3.5 3.5 0 1 1 5 3.2c-1 .5-1.5 1.2-1.5 2.3M20 22v.4" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>'
   };
-  var CIRC_BG = { grid: "#FDE7F1", rupee: "#FFF6DA", rocket: "#EEE9FF", store: "#FDE7F1", tag: "#FFEDE0", flow: "#E0F6F5", mall: "#F0E8FA", orders: "#F7EFE2", help: "#F9E6F4" };
+  var CIRC_BG = { grid: "#FDE7F1", rupee: "#FFF6DA", rocket: "#EEE9FF", store: "#FDE7F1", tag: "#FFEDE0", flow: "#E0F6F5", mall: "#F0E8FA", live: "#E7F8EF", orders: "#F7EFE2", help: "#F9E6F4" };
 
   /* ---------------- shared bits ---------------- */
   function provChip(p) {
@@ -109,6 +111,7 @@
           '<div class="hook">' + esc(p.hook) + "</div>" +
           '<div class="rate"><span class="pill ' + pillCls(p) + '">' + esc(p.kind.split(" · ")[0].split(" & ")[0]) + '</span><img src="' + s.logo + '" alt=""><span class="sl">(' + esc(s.name) + ")</span></div>" +
         "</div></a>" +
+      (p.links.length ? '<a class="try-live" href="' + p.links[0].u + '" target="_blank" rel="noopener" aria-label="Try ' + esc(p.short) + ' live at ' + esc(host(p.links[0].u)) + ' (opens in new tab)"><i></i>Try it live ' + I.ext + "</a>" : "") +
       '<button class="heart' + (w ? " on" : "") + '" data-act="wish" data-id="' + p.id + '" aria-pressed="' + w + '" aria-label="' + (w ? "Remove from" : "Add to") + ' wishlist: ' + esc(p.short) + '">' + I.heart + "</button>" +
       "</article>";
   }
@@ -224,6 +227,7 @@
       ["#/shop/build", "rocket", "0→1 Builds"],
       ["#/shop/seller", "store", "Seller & D2C"],
       ["#/shop/gtm", "tag", "GTM & Pricing"],
+      ["#/shop/live", "live", "Live Builds"],
       ["#/shop/mall", "mall", "PhonePe Mall"],
       ["#/orders", "orders", t("orders")],
       ["#/help", "help", "Contact"]
@@ -281,7 +285,8 @@
     seller: "The supply side: D2C brands, sourcing, couriers, COD remittances and the leaks a small seller lives with.",
     gtm: "Consumer research, segmentation, pricing tiers and launch plans — quantified before anything was committed.",
     process: "Multi-party workflows made measurable: turnaround clocks, intake checks, go-live pipelines.",
-    mall: "Verified professional results from PhonePe, sold by the brand itself."
+    mall: "Verified professional results from PhonePe, sold by the brand itself.",
+    live: "Working products and prototypes you can open right now — each one links straight to the live build."
   };
   function vShop(cat) {
     var list = filtered(cat);
@@ -315,6 +320,7 @@
       provChip(p.price.prov) +
       '<div class="rate"><span class="pill ' + pillCls(p) + '">✦ ' + esc(p.badge) + '</span><span class="sl">' + esc(p.kind) + (p.date ? " · " + esc(p.date) : "") + "</span></div>" +
       '<div class="free">' + I.truck + ti("free30") + "</div>" +
+      (p.links.length ? '<a class="live-bar" href="' + p.links[0].u + '" target="_blank" rel="noopener"><span class="lb-dot"></span><span><b>' + esc(p.links[0].t) + '</b><small>' + esc(host(p.links[0].u)) + ' · opens in a new tab</small></span>' + I.ext + "</a>" : "") +
       '<div class="buybar"><button class="btn ol" data-act="cart" data-id="' + id + '">' + I.cart + "<span>" + (inCart ? "Go to Cart" : t("addCart")) + '</span></button><button class="btn" data-act="buy" data-id="' + id + '">' + ti("buyNow") + "</button></div></div>" +
 
       '<div class="card"><h2>' + ti("selectView") + '</h2><div class="sizes" role="tablist">' +
@@ -501,7 +507,7 @@
         '<a class="icn" href="#/account">' + I.user + ti("profile") + '</a><a class="icn" href="#/wishlist">' + I.heart + ti("wishlist") + cnt(wc) + '</a><a class="icn" href="#/cart">' + I.cart + ti("cart") + cnt(cc) + "</a></div></div>" +
       '<nav class="navrow" aria-label="Departments"><ul>' +
         [["#/shop/all", "Popular"]].concat(D.cats.filter(function (c) { return c.id !== "all"; }).map(function (c) { return ["#/shop/" + c.id, S.lang === "hi" ? c.hi : c.name]; }))
-          .concat([["#/orders", t("orders")], ["#/categories", t("categories")], ["#/help", t("help")]])
+          .concat([["#/orders", t("orders")], ["#/help", t("help")]])
           .map(function (x) { return '<li><a href="' + x[0] + '" data-nav="' + x[0] + '">' + esc(x[1]) + "</a></li>"; }).join("") + "</ul></nav>";
     $("#bnav").innerHTML = [["#/", "nHome", "home"], ["#/categories", "nCat", "categories"], ["#/orders", "nOrders", "orders"], ["#/help", "nHelp", "help"], ["#/account", "nAcc", "account"]]
       .map(function (x) { return '<a href="' + x[0] + '" data-tab="' + x[0] + '">' + I[x[1]] + ti(x[2]) + "</a>"; }).join("");

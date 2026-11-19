@@ -40,6 +40,7 @@ window.NJ = {
     { id: "seller",   name: "Seller & D2C",       hi: "सेलर और D2C",    icon: "store" },
     { id: "gtm",      name: "GTM & Pricing",      hi: "GTM और प्राइसिंग", icon: "tag" },
     { id: "process",  name: "Process Design",     hi: "प्रोसेस डिज़ाइन",  icon: "flow" },
+    { id: "live",     name: "Live Builds",        hi: "लाइव बिल्ड",      icon: "live" },
     { id: "mall",     name: "PhonePe Mall",       hi: "PhonePe मॉल",    icon: "mall" }
   ],
 
