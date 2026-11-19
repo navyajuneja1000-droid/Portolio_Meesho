@@ -14,7 +14,7 @@ window.NJ = {
     phoneHref: "tel:+918556817288",
     linkedin: "https://www.linkedin.com/in/junejanavya/",
     linkedinShort: "linkedin.com/in/junejanavya",
-    resume: "Navya-Juneja-Resume.pdf",
+    resume: "Navya_Juneja_Meesho_PM.pdf",
     portfolio: "https://personalportfolio-lilac-tau.vercel.app/"
   },
 
