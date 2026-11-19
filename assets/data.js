@@ -102,6 +102,7 @@ window.NJ = {
         { type: "img", src: "assets/work/perfora-slide-3.jpg", alt: "Slide 3: six-month roadmap, KPI scorecard and two beta tests" }
       ],
       links: [],
+      deck: { u: "assets/decks/Perfora-Growth-Plan-Navya-Juneja.pdf", t: "Perfora growth plan", pages: 3, size: "0.3 MB" },
       meesho: "COD-heavy Tier 2/3 orders, RTO climbing from ~10% to ~20%, mobile checkout drop-off and weak repeat buying — this is the Meesho problem set, solved for one brand. The fixes (WhatsApp COD confirmation, ₹49 partial COD, pincode gating, UPI-first checkout, refill nudges) are the levers a Meesho PM pulls.",
       summary: {
         problem: "Perfora nearly doubled performance-marketing spend, yet website revenue stayed stuck at ~₹3 Cr a month, conversion sat at 1.9–2.4% and RTO rose from ~10% to 18%. The brief: a single data-backed plan to reach ₹6 Cr in six months while improving profitability.",
@@ -241,6 +242,7 @@ window.NJ = {
         { type: "img", src: "assets/work/wow-range.jpg", alt: "Launch range slide: three flavours, six SKUs" }
       ],
       links: [],
+      deck: { u: "assets/decks/WOW-World-Pitch-Deck.pdf", t: "WOW! World pitch deck", pages: 19, size: "2.4 MB" },
       meesho: "A ₹10 trial sachet to a ₹89 carton is a price ladder built for a value-conscious buyer, and the shaker earning 42% funds the lower-margin packs. Sizing SOM bottom-up — doors × packs a day × days × price — instead of as a share of India is how I'd size any new Meesho category.",
       summary: {
         problem: "WOW! Momo's packaged-foods business already sells frozen momos, cup and pouch noodles, ready-to-eat biryani and sauces. The brief: find the next category, and prove market gap, brand fit, size, SKUs, pricing and commercial viability.",

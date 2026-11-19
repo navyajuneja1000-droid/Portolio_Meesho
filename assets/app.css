@@ -788,3 +788,12 @@ body:not(.r-home):not(.r-shop) .mic-fab{display:none}
   .thumbs-v{max-height:min(520px,calc(100vh - 200px));overflow-y:auto;scrollbar-width:thin;padding-right:2px}
   .thumbs-v button{flex:none}
 }
+/* decks */
+.try-live.deck{border-color:var(--m);color:var(--m)}
+.try-live.deck:hover{background:var(--m-50)}
+.try-live.deck svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.deck-bar{background:linear-gradient(135deg,#FDF2FA,#F7DDEF);border-color:var(--m-200);color:var(--plum)}
+.deck-bar:hover{border-color:var(--m)}
+.deck-bar small{color:#7A4A6E}
+.deck-bar svg{stroke:var(--m)}
+.deck-bar>svg:first-child{width:24px;height:24px}

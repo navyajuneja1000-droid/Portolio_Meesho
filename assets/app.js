@@ -112,6 +112,7 @@
           '<div class="hook">' + esc(p.hook) + "</div>" +
           '<div class="rate"><span class="pill ' + pillCls(p) + '">' + esc(p.kind.split(" · ")[0].split(" & ")[0]) + '</span><img src="' + s.logo + '" alt=""><span class="sl">(' + esc(s.name) + ")</span></div>" +
         "</div></a>" +
+      (p.deck ? '<a class="try-live deck" href="' + p.deck.u + '" target="_blank" rel="noopener" aria-label="View the ' + esc(p.deck.t) + ' (PDF, opens in new tab)">' + I.doc + "View deck</a>" : "") +
       (p.links.length ? '<a class="try-live" href="' + p.links[0].u + '" target="_blank" rel="noopener" aria-label="Try ' + esc(p.short) + ' live at ' + esc(host(p.links[0].u)) + ' (opens in new tab)"><i></i>Try it live ' + I.ext + "</a>" : "") +
       '<button class="heart' + (w ? " on" : "") + '" data-act="wish" data-id="' + p.id + '" aria-pressed="' + w + '" aria-label="' + (w ? "Remove from" : "Add to") + ' wishlist: ' + esc(p.short) + '">' + I.heart + "</button>" +
       "</article>";
@@ -126,7 +127,7 @@
       if (f.seller.length && f.seller.indexOf(p.seller) < 0) return false;
       if (f.prov.length && f.prov.indexOf(p.price.prov) < 0) return false;
       if (q) {
-        var hay = [p.name, p.short, p.code, p.hook, p.kind, D.sellers[p.seller].name, p.cats.join(" "), p.summary.problem, p.summary.did, p.summary.landed, p.meesho, p.sections.map(function (x) { return x.h + " " + (x.p || "") + " " + (x.list || []).join(" "); }).join(" ")].join(" ").toLowerCase();
+        var hay = [p.name, p.short, p.code, p.hook, p.kind, D.sellers[p.seller].name, p.cats.join(" "), p.deck ? "deck slides pitch" : "", p.summary.problem, p.summary.did, p.summary.landed, p.meesho, p.sections.map(function (x) { return x.h + " " + (x.p || "") + " " + (x.list || []).join(" "); }).join(" ")].join(" ").toLowerCase();
         return q.split(/\s+/).every(function (w) { return hay.indexOf(w) > -1; });
       }
       return true;
@@ -321,6 +322,7 @@
       provChip(p.price.prov) +
       '<div class="rate"><span class="pill ' + pillCls(p) + '">✦ ' + esc(p.badge) + '</span><span class="sl">' + esc(p.kind) + (p.date ? " · " + esc(p.date) : "") + "</span></div>" +
       '<div class="free">' + I.truck + ti("free30") + "</div>" +
+      (p.deck ? '<a class="live-bar deck-bar" href="' + p.deck.u + '" target="_blank" rel="noopener">' + I.doc + '<span><b>View the full deck</b><small>' + esc(p.deck.t) + " · PDF · " + p.deck.pages + " slides · " + esc(p.deck.size) + '</small></span>' + I.ext + "</a>" : "") +
       (p.links.length ? '<a class="live-bar" href="' + p.links[0].u + '" target="_blank" rel="noopener"><span class="lb-dot"></span><span><b>' + esc(p.links[0].t) + '</b><small>' + esc(host(p.links[0].u)) + ' · opens in a new tab</small></span>' + I.ext + "</a>" : "") +
       '<div class="buybar"><button class="btn ol" data-act="cart" data-id="' + id + '">' + I.cart + "<span>" + (inCart ? "Go to Cart" : t("addCart")) + '</span></button><button class="btn" data-act="buy" data-id="' + id + '">' + ti("buyNow") + "</button></div></div>" +
 
@@ -338,8 +340,8 @@
 
       (p.sections.length ? '<div class="card"><h2>' + ti("more") + "</h2>" + p.sections.map(function (sec, i) { return '<details class="acc"' + (i === 0 ? " open" : "") + "><summary>" + esc(sec.h) + '</summary><div class="acc-b">' + secBody(sec) + "</div></details>"; }).join("") + "</div>" : "") +
 
-      (p.links.length ? '<div class="card"><h2>Open the real thing</h2><div class="links">' + p.links.map(function (l) {
-        return '<a class="lnk" href="' + l.u + '" target="_blank" rel="noopener"><span>' + esc(l.t) + "<small>" + esc(l.u.replace(/^https?:\/\//, "").replace(/\/$/, "")) + "</small></span>" + I.ext + "</a>";
+      (p.links.length || p.deck ? '<div class="card"><h2>Open the real thing</h2><div class="links">' + p.links.concat(p.deck ? [{ t: "Download the deck (PDF)", u: p.deck.u }] : []).map(function (l) {
+        return '<a class="lnk" href="' + l.u + '" target="_blank" rel="noopener"><span>' + esc(l.t) + "<small>" + esc(/^https?:/.test(l.u) ? l.u.replace(/^https?:\/\//, "").replace(/\/$/, "") : l.u.split("/").pop()) + "</small></span>" + I.ext + "</a>";
       }).join("") + "</div></div>" : "") +
 
       '<div class="card"><div class="seller"><img src="' + s.logo + '" alt="' + esc(s.name) + ' logo"><div><small>' + ti("soldBy") + "</small><b>" + esc(s.name) + "</b><span>" + esc(s.sub) + '</span></div><a class="btn ol sm" href="#/shop/all?seller=' + p.seller + '">' + ti("viewShop") + "</a></div>" +
